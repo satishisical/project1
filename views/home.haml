@@ -1,0 +1,33 @@
+!!!
+%html
+	%head
+		%title SomeOne's Blog
+		%link{:type => "text/css",:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :rel => "stylesheet"}/
+		%link{:href => "mycss.css", :rel => "stylesheet"}/
+		%link{:href => "mystyle.css", :rel => "stylesheet"}/
+		
+
+	%body
+	.align-center
+		%h2 Login Page
+		.mycontainer
+
+			.row
+				%form{:action => "/home", :method => "post"}
+					%br
+					.form-group
+						%input#userid.form-control{:placeholder => "User id", :type => "text", :required =>"",:name => "user"}
+						%br
+						%br
+					.form-group
+						%input#pwd.form-control{:placeholder => "Password", :type => "password" ,:required =>"",:name => "pass"}
+						%br
+						%br
+						%button#login.btn.btn-default{:type => "submit"} Login
+						%button#reset.btn.btn-default{:type => "reset"} Reset
+						%h4 If not Register Please Register
+						%a{:href => '/reg'} Register Here	
+						- if flash[:error]
+							%p
+								= flash[:error]
+									

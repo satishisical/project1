@@ -1,0 +1,54 @@
+!!!
+%html
+	%head
+		%title SomeOne's Blog
+		%link{:type => "text/css",:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :rel => "stylesheet"}/
+		%link{:href => "mycss.css", :rel => "stylesheet"}/
+		:javascript
+			function Validate() {
+				var password = document.getElementById("pwd1").value
+				var confirmPassword = document.getElementById("pwd2").value
+				if (password != confirmPassword) {
+				alert("Passwords do not match.")
+				return false
+				}
+				return true
+			}
+		
+
+	%body
+		%div
+			.mycontainer
+				.row
+					%form{:action => "/registration", :method => "post"}
+						.align-center
+							%h2 Registration Page
+							%br
+						.form-group
+							%input#userid.form-control{:placeholder => "User id", :type => "email", :required =>"",:name => "email_ID"}
+							%br
+							%br
+						.form-group
+							%input#userid.form-control{:placeholder => "User name", :type => "text", :required =>"",:name => "name"}
+							%br
+							%br
+						.form-group
+							%input#userid.form-control{:placeholder => "mobile number", :type => "number", :required =>"",:name => "mobile"}
+							%br
+							%br
+						.form-group
+							%input#pwd1.form-control(placeholder="Password" type="password" name="password" required)
+							%br
+							%br
+							%input#pwd2.form-control(placeholder="Confirm Password" type="password" name="cpassword" required onmouseleave = 'Validate()')
+						.align-center
+							- if flash[:error]
+								%p
+									= flash[:error]
+						.align-center
+							%button#submit.btn.btn-default{:type => "submit"} Register
+							%button#reset.btn.btn-default{:type => "reset"} Reset
+							%br
+							%br
+							%a{:href => '/home'} Back To Login
+						

@@ -1,0 +1,22 @@
+body {
+    background:solid white;
+}
+
+.form_bg {
+    background-color:solid white;
+    color:solid white;
+    padding:20px;
+    border-radius:10px;
+    position: absolute;
+    border:1px solid white;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    height: 280px;
+}
+.align-center {
+    text-align:center;
+}
